@@ -23,3 +23,11 @@ var upload = multer({ storage: storage })
 - when creating mongoose schema it is useful to use ``{ timestamps: true }`` to automatically manage createdAt and updatedAt properties on your documents
 
 - when I was getting this error: "TypeError: Router.use() requires a middleware function but got a Object" the problem was that I forgot to export my auth.js file (by typing module.exports = router)
+
+- when you want to hide the text after 4 lines with CSS only:
+```css 
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+```
