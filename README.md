@@ -31,3 +31,5 @@ var upload = multer({ storage: storage })
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
 ```
+
+- use "autoFocus="true" in **input** html tag if you want to automatically focus after refreshing the page

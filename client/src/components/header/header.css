@@ -1,13 +1,19 @@
 .header {
     margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    flex-direction: center;
+    align-items: center;
 }
 .headerTitles{
     display: flex;
+    flex-direction: column;
     flex-direction: center;
     align-items: center;
     font-family: 'Lora', serif;
     color: #444;
     position: relative;
+    mix-blend-mode: multiply;
 }
 
 .headerTitleSm {
