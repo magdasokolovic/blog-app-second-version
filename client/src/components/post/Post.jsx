@@ -1,22 +1,26 @@
 import './post.css'
 
-export default function Post() {
+export default function Post({post}) {
+    console.log(post)
     return (
         <div className="post">
-            <img className="postImg" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmxvZyUyMHBvc3R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="computer" />
+            {post.photo && (
+                <img className="postImg" src={post.photo}alt="blog post" />
+            )}
+            
             <div className="postInfo">
                 <div className="postCats">
-                    <span className="postCat">Music</span>
-                    <span className="postCat">Life</span>
-
+                    {post.categories.map(category=>(
+                        <span className="postCat">{category.name}</span>
+                    ))}
                 </div>
                 <div className="postTitle">
-                    Lorem ipsum dolor sit amet.
+                    {post.title}
                 </div>
                 <hr />
-                <span className="postDate">1 hour ago</span>
+                <span className="postDate">{new Date(post.createdAt).toDateString()}</span>
             </div>
-            <p className="postDesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, necessitatibus vitae saepe maxime iste, excepturi ea est odit blanditiis sint neque eos sapiente quia voluptatum omnis harum, tempore corrupti dolore! lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <p className="postDesc">{post.desc}
             </p>
         </div>
     )

@@ -33,3 +33,5 @@ var upload = multer({ storage: storage })
 ```
 
 - use "autoFocus="true" in **input** html tag if you want to automatically focus after refreshing the page
+
+- in order to convert "createdAt" date to the normal date: "new Date(post.createdAt).toDateString()"
