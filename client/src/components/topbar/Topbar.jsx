@@ -3,7 +3,7 @@ import './topbar.css'
 import {Link} from 'react-router-dom'
 
 export default function Topbar() {
-    const user = true;
+    const user = false;
     return (
         <div className="top">
             <div className="topLeft">
@@ -42,8 +42,6 @@ export default function Topbar() {
                             <Link className="link" to="/register">REGISTER</Link>
                         </li>
 
-                        
-                        
                     </ul>
                 )
             }

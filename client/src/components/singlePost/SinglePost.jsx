@@ -1,22 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import {useLocation, Link} from 'react-router-dom'
 import './SinglePost.css'
+import axios from 'axios'
 
 export default function SinglePost() {
+    const location = useLocation()
+    const path = location.pathname.split('/')[2]
+    const [post, setPost] = useState({})
+
+    useEffect(() => {
+        const getPost = async ()=>{
+            const res = await axios.get('/posts/' + path)
+            setPost(res.data)
+        }
+        getPost()
+    }, [path])
     return (
         <div className="singlePost">
             <div className="singlePostWrapper">
-                <img src="https://images.pexels.com/photos/2255441/pexels-photo-2255441.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="White gear on pink flatlay" className="singlePostImage" />
-                <h1 className="singlePostTitle">Lorem ipsum dolor sit amet.
+                {post.photo && (
+                <img src={post.photo} alt="White gear on pink flatlay" className="singlePostImage" />
+                )}
+               
+                <h1 className="singlePostTitle">{post.title}
                     <div className="singlePostEdit">
                         <i class="singlePostIcon far fa-edit"></i>
                         <i class="singlePostIcon far fa-trash-alt"></i>
                     </div>
                 </h1>
                 <div className="singlePostInfo">
-                    <span className="singlePostAuthor">Autor: <b>Magda</b></span>
-                    <span className="singlePostData">1 hour ago</span>
+                    <span className="singlePostAuthor">Autor: <Link tp={`/?user=${post.username}`} className="link"><b>{post.username}</b></Link></span>
+                    <span className="singlePostData">{new Date(post.createdAt).toDateString()}</span>
                 </div>
-                <p className="singlePostDesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quidem nobis illo sint rerum ab? Quae a nihil neque dolorum doloremque, at quia repellendus ut corporis est aperiam perspiciatis libero. LoremLaborum dolor esse occaecat dolor nostrud ut. Labore exercitation irure enim aliqua consequat qui sint et mollit nostrud id commodo amet. Elit laborum veniam dolore anim magna quis amet laborum ipsum velit.Reprehenderit pariatur enim sunt elit pariatur aute sunt. Consequat irure duis officia est veniam cillum. Ullamco eiusmod reprehenderit ipsum voluptate sit minim sunt sunt. Occaecat deserunt officia cupidatat sit consectetur irure deserunt dolore tempor est proident.</p>
+                <p className="singlePostDesc">{post.desc}</p>
             </div>
         </div>
     )
