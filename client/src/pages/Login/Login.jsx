@@ -5,8 +5,8 @@ import {Context} from '../../context/Context'
 import axios from 'axios'
 
 export default function Login() {
-    const userRef = useRef() 
-    const passwordRef = useRef()
+    const userRef = useRef(null) 
+    const passwordRef = useRef(null)
 
     const {dispatch, isFetching} = useContext(Context)
 
