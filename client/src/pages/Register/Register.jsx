@@ -12,12 +12,14 @@ export default function Register() {
 
 
     const handleSubmit = async (e) => {
+        e.preventDefault()
+        setError(false)
         try{
-            e.preventDefault()
-            setError(false)
             const res = await axios.post('/auth/register', {
                 username, email, password
             })
+            console.log("register page" + res)
+            //redirecting to login page aftetr correct registering: 
             res.data && window.location.replace('/login')
         }catch(err) {
             setError(true)
@@ -43,7 +45,7 @@ export default function Register() {
                 />
                 <button type="submit" className="registerButton">Register</button>
                 <button className="registerLoginButton"><Link className="link" to="/login">Login</Link></button>
-                {error && <span style={{color:'red', martginTop:'10px'}}>Something went wrong</span>}
+                {error && <span style={{color:'red', marginTop:'10px'}}>Something went wrong</span>}
             </form>
         </div>
     )

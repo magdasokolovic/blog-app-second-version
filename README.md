@@ -37,3 +37,7 @@ var upload = multer({ storage: storage })
 - in order to convert "createdAt" date to the normal date: "new Date(post.createdAt).toDateString()"
 
 - The **useLocation** hook helps us to access the location object, which contains the current URL location, search property.
+
+- **user?.username** = a question mark here means that if there is not user there will be no error
+
+-autoFocus in input. 

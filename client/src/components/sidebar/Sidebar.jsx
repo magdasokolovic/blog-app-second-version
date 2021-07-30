@@ -13,6 +13,7 @@ export default function Sidebar() {
             console.log(res)
             setCats(res.data)
         }
+        getCats()
     }, [])
     return (
         <div className="sidebar">
