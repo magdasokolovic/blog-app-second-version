@@ -26,7 +26,7 @@ export default function Post({post}) {
                 <hr />
                 <span className="postDate">{new Date(post.createdAt).toDateString()}</span>
             </div>
-            <p className="postDesc">{post.desc}
+            <p className="postDesc">{post.description}
             </p>
         </div>
     )

@@ -30,11 +30,11 @@ export default function Login() {
             <span className="loginTitle">Login</span>
             <form className="loginForm" onSubmit={handleSubmit}>
                 <label>Username</label>
-                <input type="text" className="loginInput" placeholder="Enter your username"
+                <input type="text" className="loginInput" required placeholder="Enter your username"
                 ref={userRef}
                 />
                 <label>Password</label>
-                <input type="password" className="loginInput"  placeholder="Enter password"
+                <input type="password" className="loginInput" required placeholder="Enter password" minLength={6}
                 ref={passwordRef}
                 />
                 <button className="loginButton" type="submit" disabled={isFetching}>Login</button>
